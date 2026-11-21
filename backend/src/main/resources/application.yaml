@@ -1,3 +1,11 @@
 spring:
   application:
     name: backend
+  datasource:
+    url: jdbc:postgresql://localhost:${DB_PORT:5432}/${POSTGRES_DB:copiloto}
+    username: ${POSTGRES_USER:copiloto}
+    password: ${POSTGRES_PASSWORD:pgpassword}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
