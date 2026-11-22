@@ -17,7 +17,10 @@ repositories {
 	mavenCentral()
 }
 
+extra["springAiVersion"] = "2.0.1"
+
 dependencies {
+    implementation("org.springframework.ai:spring-ai-starter-model-ollama")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-flyway")
@@ -33,6 +36,12 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-validation-test")
 	testImplementation("org.springframework.boot:spring-boot-starter-webmvc-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+}
+
+dependencyManagement {
+    imports {
+        mavenBom("org.springframework.ai:spring-ai-bom:${property("springAiVersion")}")
+    }
 }
 
 tasks.withType<Test> {
