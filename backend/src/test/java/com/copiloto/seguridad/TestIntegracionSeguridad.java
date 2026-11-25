@@ -67,6 +67,7 @@ public class TestIntegracionSeguridad {
                 .andExpect(status().isConflict());
     }
 
+    //Este test impide que se guarde la contraseña sin hashear (ERROR PASADO)
     @Test
     void laContrasenaSeGuardaHasheada() throws Exception {
         String email = emailAleatorio();
