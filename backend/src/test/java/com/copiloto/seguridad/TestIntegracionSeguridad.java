@@ -16,8 +16,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+// Anotación que indica que es un test de integración de Spring Boot, arranca el contexto completo de la aplicación
 @SpringBootTest
+// Esto arranca el servidor web embebido y permite hacer peticiones HTTP simuladas con MockMvc
 @AutoConfigureMockMvc
+// Esto importa la configuración de Testcontainers para usar la base de datos en contenedor
 @Import(TestcontainersConfiguration.class)
 public class TestIntegracionSeguridad {
 
